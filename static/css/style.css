@@ -1,0 +1,242 @@
+:root {
+  --primary-color: #ffffff;
+  --secondary-color: #00255c;
+  --tertiary-color: #F6F6F6;
+  --contrast-color: #ffffff;
+  --base-color: #000000;
+  --text-color: #FFFFFF;
+  --accent-blue: #2874fc;
+  --dark-blue: #010d3c;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'DM Sans', sans-serif;
+}
+
+body {
+    background: linear-gradient(rgb(0, 0, 0) 22%, rgb(24, 71, 153));
+    color: var(--text-color);
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 10px auto;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    flex: 1;
+    overflow-y: auto;
+    max-height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+}
+
+.container.results {
+    justify-content: center;
+}
+
+.container.results h1 {
+    font-size: clamp(28px, 4vw, 48px);
+    margin-bottom: 10px;
+}
+
+.container.results p {
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: clamp(38.588px, 3.037rem + ((1vw - 3.2px) * 5.388), 96px);
+    font-weight: 400;
+    letter-spacing: -5px;
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-color);
+}
+
+p {
+    margin-bottom: 30px;
+    color: #7f8c8d;
+}
+
+.file-upload {
+    margin-bottom: 20px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+label[for="file"] {
+    display: inline-block;
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+label[for="file"]:hover {
+    background-color: #2980b9;
+}
+
+button, .back-button {
+    background-color: var(--accent-blue);
+    color: var(--text-color);
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: var(--spacing-md);
+}
+
+button:hover, .back-button:hover {
+    background-color: var(--primary-color);
+    color: var(--base-color);
+    transform: translateY(-2px);
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 10px 0;
+    flex: 1;
+    min-height: 0;  /* Important for flex container */
+}
+
+.image-box {
+    flex: 1;
+    max-width: 45%;
+    background-color: var(--dark-blue);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+.image-box h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.image-box img {
+    max-width: 300px;
+    max-height: calc(100vh - 300px);  /* Adjust based on header and footer height */
+    object-fit: contain;
+    margin: auto;
+}
+
+.back-button {
+    margin: 15px 0;
+}
+
+.file-info {
+    margin: 15px 0;
+    text-align: center;
+}
+
+.file-info p {
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.progress {
+    width: 100%;
+    height: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    width: 0;
+    height: 100%;
+    background-color: #3498db;
+    transition: width 0.3s ease;
+}
+
+.drag-drop-zone {
+    border: 2px dashed var(--accent-blue);
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    margin: var(--spacing-md) 0;
+    background-color: rgba(40, 116, 252, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.drag-drop-zone.dragover {
+    background-color: rgba(40, 116, 252, 0.1);
+    border-color: var(--primary-color);
+}
+
+.drag-drop-zone .upload-icon {
+    font-size: 2rem;
+    color: var(--accent-blue);
+    margin-bottom: var(--spacing-sm);
+}
+
+.drag-drop-text {
+    color: var(--text-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.drag-drop-text span {
+    color: var(--accent-blue);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.footer {
+    background-color:  black;
+    color: var(--text-color);
+    padding: 15px 0;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer p {
+    margin: 0;
+    color: var(--text-color);
+}
+
+.footer a {
+    color: var(--accent-blue);
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .image-box {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}

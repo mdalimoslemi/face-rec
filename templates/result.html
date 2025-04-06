@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Detection Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; script-src 'self' 'unsafe-inline' unpkg.com; style-src 'self' 'unsafe-inline' unpkg.com fonts.googleapis.com; font-src 'self' fonts.gstatic.com;">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+</head>
+<body>
+    <div class="container results" data-aos="fade-in" data-aos-duration="1200">
+        <h1>Face Detection Results</h1>
+        {% if message %}
+            <p>{{ message }}</p>
+        {% endif %}
+        <p>Detected {{ face_count }} face{% if face_count != 1 %}s{% endif %} in the image | Model is Not accurate and this app is just for demo</p>
+        
+        <div class="image-container">
+            <div class="image-box">
+                <h3>Original Image</h3>
+                <img src="{{ url_for('static', filename=original_image) }}" alt="Original Image">
+            </div>
+            
+            <div class="image-box">
+                <h3>Processed Image</h3>
+                <img src="{{ url_for('static', filename=processed_image) }}" alt="Processed Image with Faces">
+            </div>
+        </div>
+        
+        <a href="/" class="back-button">Upload Another Image</a>
+    </div>
+
+    <footer class="footer">
+        <p>© 2025 Face Recognition App | Built with love by Mohammad Ali Moslemi </a></p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: false
+        });
+    </script>
+</body>
+</html>
